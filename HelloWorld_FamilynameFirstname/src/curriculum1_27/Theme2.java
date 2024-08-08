@@ -1,58 +1,12 @@
-/*
- 
- 	コンソールに下記が入力されたときにコンソール出力結果がコンソールに表示されるように作ってください
- 	ライオン:2.1:80,ゾウ:3.2:40,パンダ:1.9:30,チンパンジー:0.94:25,シマウマ:2.4:65,インコ:0.1:50
-  	
-  	コンソール出力結果
-  	
-  	コンソールに文字を入力してください
-  	動物名：ライオン
-	体長：2.1m
-	速度：80km/h
-	学名：パンテラ レオ
-	
-	動物名：ゾウ
-	体長：3.2m
-	速度：40km/h
-	学名：ロキソドンタ・サイクロティス
-	
-	動物名：パンダ
-	体長：1.9m
-	速度：30km/h
-	学名：アイルロポダ・メラノレウカ
-	
-	動物名：チンパンジー
-	体長：0.94m
-	速度：25km/h
-	学名：パン・トゥログロディテス
-	
-	動物名：シマウマ
-	体長：2.4m
-	速度：65km/h
-	学名：チャップマンシマウマ
-	
-	動物名：インコ
-	体長：0.1m
-	速度：50km/h
-	学名：不明
-
-  
-  */
-
 package curriculum1_27;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
-// 動物の情報を保持するクラス
-class Animal {
+public class Theme2 {
 	private String length;
 	private String speed;
 	private String scientificName;
 
 	// コンストラクタ
-	public Animal(String length, String speed, String scientificName) {
+	public Theme2(String length, String speed, String scientificName) {
 		this.length = length;
 		this.speed = speed;
 		this.scientificName = scientificName;
@@ -64,53 +18,17 @@ class Animal {
 		System.out.println("速度：" + speed);
 		System.out.println("学名：" + scientificName);
 	}
-}
 
-// 動物情報を管理するクラス
-class AnimalDatabase {
-	private Map<String, Animal> animals;
-
-	// コンストラクタ
-	public AnimalDatabase() {
-		animals = new HashMap<>();
-		initializeDatabase();
+	// Getter メソッド
+	public String getLength() {
+		return length;
 	}
 
-	// データベースの初期化
-	private void initializeDatabase() {
-		animals.put("ライオン", new Animal("2.1m", "80km/h", "パンテラ レオ"));
-		animals.put("ゾウ", new Animal("3.2m", "40km/h", "ロキソドンタ・サイクロティス"));
-		animals.put("パンダ", new Animal("1.9m", "30km/h", "アイルロポダ・メラノレウカ"));
-		animals.put("チンパンジー", new Animal("0.94m", "25km/h", "パン・トゥログロディテス"));
-		animals.put("シマウマ", new Animal("2.4m", "65km/h", "チャップマンシマウマ"));
-		animals.put("インコ", new Animal("0.1m", "50km/h", "不明"));
+	public String getSpeed() {
+		return speed;
 	}
 
-	// 動物名から情報を取得する
-	public void printAnimalInfo(String animalName) {
-		Animal animal = animals.get(animalName);
-		if (animal != null) {
-			System.out.println("動物名：" + animalName);
-			animal.displayInfo();
-		} else {
-			System.out.println("指定された動物の情報は見つかりませんでした。");
-		}
-	}
-}
-
-// メインクラス
-public class Theme2 {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		AnimalDatabase database = new AnimalDatabase();
-
-		// コンソールにメッセージを表示
-		System.out.println("コンソールに文字を入力してください");
-		String input = scanner.nextLine().trim();
-
-		// 動物の情報を表示
-		database.printAnimalInfo(input);
-
-		scanner.close();
+	public String getScientificName() {
+		return scientificName;
 	}
 }

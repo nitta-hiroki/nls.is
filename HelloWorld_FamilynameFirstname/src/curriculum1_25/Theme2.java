@@ -23,87 +23,36 @@
 
 package curriculum1_25; // パッケージ名を指定
 
-// スーパークラス: キャラクター
-class Character {
-	// キャラクターの属性を定義
-	private String name;
-	private int hp;
-	private int mp;
-	private int attack;
-	private int agility;
-	private int defense;
+import java.util.Scanner; // Scanner クラスをインポート
 
-	// コンストラクタ: キャラクターを初期化
-	public Character(String name, int hp, int mp, int attack, int agility, int defense) {
-		this.name = name;
-		this.hp = hp;
-		this.mp = mp;
-		this.attack = attack;
-		this.agility = agility;
-		this.defense = defense;
-	}
-
-	// GetterとSetterメソッド
-	public String getName() {
-		return name;
-	}
-
-	public int getHp() {
-		return hp;
-	}
-
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-
-	public int getMp() {
-		return mp;
-	}
-
-	public void setMp(int mp) {
-		this.mp = mp;
-	}
-
-	public int getAttack() {
-		return attack;
-	}
-
-	public void setAttack(int attack) {
-		this.attack = attack;
-	}
-
-	public int getAgility() {
-		return agility;
-	}
-
-	public void setAgility(int agility) {
-		this.agility = agility;
-	}
-
-	public int getDefense() {
-		return defense;
-	}
-
-	public void setDefense(int defense) {
-		this.defense = defense;
-	}
-}
-
-// メインクラス
 public class Theme2 {
-	public static void main(String[] args) {
-		// メインクラスのインスタンスを作成
-		// 名前、HP、MP、攻撃力、素早さ、防御力を指定して初期化
-		Character player = new Character("名前", 849, 862, 375, 937, 24);
+    public static void main(String[] args) {
+        // Scanner クラスを使用してユーザーからの入力を処理
+        Scanner scanner = new Scanner(System.in);
 
-		// コンソールにキャラクターの情報を出力
-		System.out.println("こんにちは " + player.getName() + " さん");
-		System.out.println("ステータス");
-		System.out.println("HP：" + player.getHp()); // HPを出力
-		System.out.println("MP：" + player.getMp()); // MPを出力
-		System.out.println("攻撃力：" + player.getAttack()); // 攻撃力を出力
-		System.out.println("素早さ：" + player.getAgility()); // 素早さを出力
-		System.out.println("防御力：" + player.getDefense()); // 防御力を出力
-		System.out.println("\nさあ冒険に出かけよう！"); // 冒険の開始を促すメッセージ
-	}
+        // ユーザーから名前の入力を受け取る
+        System.out.print("キャラクターの名前を入力してください: ");
+        String name = scanner.nextLine();
+
+        // 名前、HP、MP、攻撃力、素早さ、防御力を指定して初期化
+        Character player = new Character(name, generateRandomValue(), generateRandomValue(), generateRandomValue(), generateRandomValue(), generateRandomValue());
+
+        // コンソールにキャラクターの情報を出力
+        System.out.println("こんにちは " + player.getName() + " さん");
+        System.out.println("ステータス");
+        System.out.println("HP：" + player.getHp()); // HPを出力
+        System.out.println("MP：" + player.getMp()); // MPを出力
+        System.out.println("攻撃力：" + player.getAttack()); // 攻撃力を出力
+        System.out.println("素早さ：" + player.getAgility()); // 素早さを出力
+        System.out.println("防御力：" + player.getDefense()); // 防御力を出力
+        System.out.println("\nさあ冒険に出かけよう！"); // 冒険の開始を促すメッセージ
+
+        // Scanner クラスをクローズ
+        scanner.close();
+    }
+
+    // ランダムな数値を生成するメソッド
+    private static int generateRandomValue() {
+        return (int) (Math.random() * 1000); // 0から999までのランダムな数値を生成
+    }
 }
