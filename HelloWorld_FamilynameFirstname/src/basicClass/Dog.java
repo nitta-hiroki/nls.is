@@ -1,20 +1,22 @@
 package basicClass;
 
 public class Dog {
+
 	// Q1.フィールドに動物の名前の変数を定義してください。
-	String 動物の名前;
+	String animalname;
 
 	// Q2.フィールドに動物の数の変数を定義してください。
-	int 動物の数;
+	int animals = 0;
 
 	// Q3.Q1で作成した変数に「犬」を代入するコンストラクタを作成してください。
 	public Dog() {
-		this.動物の名前 = "犬";
+		this.animalname = "犬";
+		animals++;
 	}
 
 	// Q4.Q2で作成した変数に引数を代入するコンストラクタを作成してください。
-	public Dog(String 動物の名前, int 動物の数) {
-		this.動物の名前 = 動物の名前;
-		this.動物の数 = 動物の数;
+	public Dog(String animalName, int initialAnimals) {
+		this.animalname = animalName;
+		animals = initialAnimals; // 
 	}
 }
