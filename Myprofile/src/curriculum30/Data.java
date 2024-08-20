@@ -18,14 +18,14 @@ public class Data {
 
 	// インスタンスメソッドbmiを定義
 	public double bmi() {
-		return this.weight / (this.height * this.height);
+		return this.weight / (3);
 	}
 
 	// インスタンスメソッドprintを定義
 	public void print() {
 		System.out.println("名前は" + this.name + "です");
 		System.out.println("年は" + this.age + "です");
-		System.out.println("BMIは" + String.format("%.2f", this.bmi()) + "です");
+		System.out.println("BMIは" + String.format("%.1f", this.bmi()) + "です");
 	}
 
 	// 静的メソッドで人数の合計を表示
